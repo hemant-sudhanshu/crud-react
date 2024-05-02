@@ -30,10 +30,6 @@ function App() {
   };
 
   const editData = (index) => {
-    // Implement edit functionality if needed
-    console.log("Edit data at index", index);
-    console.log(JSON.stringify(data[index]));
-
     formRef.current.fillWithData(data[index]);
   };
 

@@ -8,11 +8,10 @@ import {
   dateRegex,
   emailRegex,
   FILL_REQUIRED_INPUTS,
+  SELECT_CLASS,
 } from "../constants/Constants";
 
 const StudentForm = React.forwardRef((props, ref) => {
-  var today = new Date();
-  var minDate = "1990-01-01";
   const { addData } = props;
   const [formData, setFormData] = useState({
     firstName: "",
@@ -20,7 +19,7 @@ const StudentForm = React.forwardRef((props, ref) => {
     email: "",
     dob: "",
     gender: "",
-    class: "8th",
+    class: "",
   });
 
   const [formError, setFormError] = useState({
@@ -28,11 +27,10 @@ const StudentForm = React.forwardRef((props, ref) => {
     lastNameError: "",
     emailError: "",
     dobError: "",
+    classError: "",
   });
 
   const fillWithData = (data) => {
-    console.log(`Passed data:`);
-    console.log(JSON.stringify(data));
     setFormData(data);
   };
 
@@ -45,7 +43,6 @@ const StudentForm = React.forwardRef((props, ref) => {
   const handleFirstNameBlur = () => {
     let errorMessage =
       formData.firstName.trim().length >= 3 ? "" : FIRST_NAME_REQUIRED;
-    console.log(errorMessage);
     setFormError({ ...formError, firstNameError: errorMessage });
   };
 
@@ -53,7 +50,6 @@ const StudentForm = React.forwardRef((props, ref) => {
   const handleLastNameBlur = () => {
     let errorMessage =
       formData.lastName.trim().length >= 3 ? "" : LAST_NAME_REQUIRED;
-    console.log(errorMessage);
     setFormError({ ...formError, lastNameError: errorMessage });
   };
 
@@ -61,21 +57,22 @@ const StudentForm = React.forwardRef((props, ref) => {
     let errorMessage = emailRegex.test(formData.email.trim())
       ? ""
       : INVALID_EMAIL;
-    console.log(errorMessage);
     setFormError({ ...formError, emailError: errorMessage });
   };
 
   const handleDobBlur = () => {
     let errorMessage = dateRegex.test(formData.dob.trim()) ? "" : INVALID_DATE;
 
-    console.log(`handleDobBlur: ${errorMessage}`);
-    console.log(errorMessage);
     setFormError({ ...formError, dobError: errorMessage });
+  };
+  // Handle First Name Validation
+  const handleClassBlur = () => {
+    let errorMessage = formData.class.trim().length > 0 ? "" : SELECT_CLASS;
+    setFormError({ ...formError, classError: errorMessage });
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(`${name}: ${value}`);
     setFormData({ ...formData, [name]: value });
   };
 
@@ -102,7 +99,8 @@ const StudentForm = React.forwardRef((props, ref) => {
       formData.firstName.trim().length >= 3 &&
       formData.lastName.trim().length >= 3 &&
       emailRegex.test(formData.email.trim()) &&
-      dateRegex.test(formData.dob.trim())
+      dateRegex.test(formData.dob.trim()) &&
+      formData.class.trim().length > 0
     );
   };
 
@@ -174,8 +172,6 @@ const StudentForm = React.forwardRef((props, ref) => {
           onChange={handleChange}
           onBlur={handleDobBlur}
           errorMessage={formError.dobError}
-          min={minDate}
-          max={today}
         />
         <p className="dob-error error-msg">{formError.dobError}</p>
         <br />
@@ -211,14 +207,21 @@ const StudentForm = React.forwardRef((props, ref) => {
           Class<sup className="required">*</sup>
         </label>
         <br />
-        <select className="inputField" name="class" onChange={handleChange}>
+        <select
+          className="inputField"
+          name="class"
+          value={formData.class}
+          onBlur={handleClassBlur}
+          onChange={handleChange}
+        >
+          <option value="">Select</option>
           <option value="8th">8th</option>
           <option value="9th">9th</option>
           <option value="10th">10th</option>
           <option value="11th">11th</option>
           <option value="12th">12th</option>
         </select>
-        <p className="class-error error-msg"></p>
+        <p className="class-error error-msg">{formError.classError}</p>
         <br />
 
         <button type="submit" className="submit-btn">
