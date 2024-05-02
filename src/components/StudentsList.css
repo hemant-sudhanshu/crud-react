@@ -1,0 +1,60 @@
+/* Heading */
+.centered-heading {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Students list */
+.detailed-table {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.table-parent {
+    border-radius: 5px;
+}
+
+table {
+    border-collapse: separate;
+    width: 100%;
+    margin: 0px 10px 0px 10px;
+    text-indent: initial;
+    border-radius: 5px;
+}
+
+th,
+td {
+    padding: 10px;
+    border-style: hidden;
+}
+
+
+thead {
+    tr {
+        background-color: #4c79b0;
+    }
+}
+
+tbody {
+    tr {
+        background-color: rgb(200, 193, 193);
+    }
+}
+
+tr>td>button {
+    background-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding-top: 0px;
+    }
+}

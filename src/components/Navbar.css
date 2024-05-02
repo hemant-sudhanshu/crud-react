@@ -1,0 +1,53 @@
+/* Navbar.css */
+
+/* Style navigation bar */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #111;
+    overflow: hidden;
+}
+
+.nav-bar h3 {
+    color: white;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    display: flex;
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    text-align: left;
+}
+
+.nav-links a:hover {
+    background-color: #999;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+
+    .nav-bar,
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-bar h3 {
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    .nav-links a {
+        text-align: center;
+    }
+
+}
