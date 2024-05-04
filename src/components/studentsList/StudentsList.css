@@ -24,7 +24,6 @@
 table {
     border-collapse: separate;
     width: 100%;
-    margin: 0px 10px 0px 10px;
     text-indent: initial;
     border-radius: 5px;
 }
@@ -50,6 +49,8 @@ tbody {
 
 tr>td>button {
     background-color: transparent;
+    border-radius: 5px;
+    border: none;
 }
 
 @media (max-width: 768px) {

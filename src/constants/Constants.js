@@ -1,3 +1,5 @@
+export const classes = ["Select", "7th", "8th", "9th", "10th", "11th", "12th"];
+
 // Message constants
 export const FIRST_NAME_REQUIRED =
   "First Name is required and should be at least 3 characters long.";
@@ -8,7 +10,19 @@ export const INVALID_DATE = "Please select a valid date.";
 export const SELECT_CLASS = "Please select student's class.";
 export const FILL_REQUIRED_INPUTS = "Please fill the required inputs.";
 
-// Regular expressions for input validation
-export const nameRegex = /^[A-Za-z'-]+$/; // Matches alphabetical characters, hyphens, and apostrophes
-export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Matches email addresses
-export const dateRegex = /^\d{4}-\d{2}-\d{2}$/; // Matches date strings in the format YYYY-MM-DD
+// ids or keys
+export const firstName = "firstName";
+export const lastName = "lastName";
+export const email = "email";
+export const dob = "dob";
+export const gender = "gender";
+
+//Texts
+export const FIRST_NAME = "First Name";
+export const LAST_NAME = "Last Name";
+export const EMAIL = "Email";
+export const DOB = "Date of Birth";
+export const GENDER = "gender";
+export const MALE = "Male";
+export const FEMALE = "Female";
+export const CLASS = "Class";

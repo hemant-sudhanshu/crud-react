@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import StudentForm from "./components/StudentForm";
-import StudentsList from "./components/StudentsList";
+import Navbar from "../components/navbar/Navbar";
+import StudentForm from "../components/studentForm/StudentForm";
+import StudentsList from "../components/studentsList/StudentsList";
 
 function App() {
   const [data, setData] = useState([]);
