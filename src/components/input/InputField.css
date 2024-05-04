@@ -1,0 +1,24 @@
+.inputFieldContainer {
+    width: 100%;
+}
+
+.inputFieldLabel {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+}
+
+.inputField {
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+}
+
+.required {
+    color: red;
+}
+
+.error-msg {
+    color: red;
+    font-size: 10px;
+}
