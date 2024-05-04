@@ -1,7 +1,7 @@
 import React from "react";
 import "./StudentsList.css";
-import EditIcon from "../assets/pencil.png";
-import DeleteIcon from "../assets/delete.png";
+import EditIcon from "../../assets/pencil.png";
+import DeleteIcon from "../../assets/delete.png";
 
 const StudentsList = ({ data, editData, deleteData }) => {
   return (
